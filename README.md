@@ -1,0 +1,2 @@
+# astrovim
+Astrovim config repository
