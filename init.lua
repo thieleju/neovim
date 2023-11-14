@@ -22,8 +22,8 @@ end
 
 require("astronvim.utils").conditional_func(astronvim.user_opts("polish", nil, false), true)
 
-vim.cmd "set fileformat=unix"
--- vim.cmd "autocmd VimEnter * term powershell"
+-- vim.cmd "set fileformat=unix"
+vim.cmd "autocmd VimEnter * term powershell"
 
 if vim.fn.has "win32" == 1 then
   vim.o.shell = "powershell.exe"
