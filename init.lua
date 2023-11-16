@@ -22,6 +22,9 @@ end
 
 require("astronvim.utils").conditional_func(astronvim.user_opts("polish", nil, false), true)
 
+require('nvim-treesitter.install').compilers = { "clang" }
+
+
 vim.cmd "set fileformat=unix"
 
 if vim.fn.has "win32" == 1 then
