@@ -24,6 +24,12 @@ require("astronvim.utils").conditional_func(astronvim.user_opts("polish", nil, f
 
 require('nvim-treesitter.install').compilers = { "clang" }
 
+require("lspconfig").volar.setup({
+    on_attach = function(client)
+        client.resolved_capabilities.document_formatting = false
+        client.resolved_capabilities.document_range_formatting = false
+    end,
+})
 
 vim.cmd "set fileformat=unix"
 
