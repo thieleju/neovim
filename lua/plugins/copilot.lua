@@ -16,6 +16,9 @@ return {
           prev = "<C-k>",
         },
       },
+      filetypes = {
+        yaml = true,
+      },
     },
     -- opts = {
     --   suggestion = { enabled = true },
