@@ -1,9 +1,2 @@
-# astrovim
+# Neovim repository
 
-Astrovim config repository
-
-## Basic usage walkthrough
-
-https://docs.astronvim.com/basic-usage/walkthrough
-
-https://docs.astronvim.com/basic-usage/mappings/
