@@ -8,6 +8,7 @@ local plugins = {
         "lua-language-server",
         "prettier",
         "typescript-language-server",
+        "vue-language-server",
       }
     }
   },

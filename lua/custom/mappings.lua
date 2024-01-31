@@ -47,6 +47,16 @@ M.dap = {
 M.misc = {
   i = {
     ["jk"] = {"<Esc>"},
+  }, 
+  n  =  {
+    ["<leader>wv"] = {
+      "<cmd> vsplit <CR>",
+      "Split window vertically"
+    },
+    ["<leader>wh"] = {
+      "<cmd> split <CR>",
+      "Split window horizontally"
+    },
   }
 }
 
