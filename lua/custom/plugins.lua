@@ -5,10 +5,57 @@ local plugins = {
       ensure_installed = {
         "eslint-lsp",
         "js-debug-adapter",
+        "lua-language-server",
         "prettier",
-        "typescript-language-server"
+        "typescript-language-server",
       }
     }
+  },
+  {
+    'Wansmer/treesj',
+    keys = {
+      '<space>m',
+      '<space>j',
+      '<space>s',
+    },
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+    },
+    config = function()
+      require('treesj').setup({})
+    end,
+  },
+  {
+    "kylechui/nvim-surround",
+    version = "*", 
+    event = "VeryLazy",
+    config = function()
+        require("nvim-surround").setup({})
+    end
+  },
+  {
+    "folke/trouble.nvim",
+    dependencies = { 
+      "nvim-tree/nvim-web-devicons"
+    },
+  },
+  {
+    "ggandor/leap.nvim",
+    event = "VeryLazy",
+    config = function()
+      return require "custom.configs.leap"
+    end
+  },
+  {
+    "kdheepak/lazygit.nvim",
+    event = "VeryLazy",
+    dependencies =  {
+        "nvim-telescope/telescope.nvim",
+        "nvim-lua/plenary.nvim"
+    },
+    config = function()
+        require("telescope").load_extension("lazygit")
+    end,
   },
   {
     "folke/noice.nvim",
@@ -20,7 +67,7 @@ local plugins = {
     },
     dependencies = {
       "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify"
+      "rcarriga/nvim-notify",
     }
   },
   {
@@ -38,27 +85,15 @@ local plugins = {
     event = "InsertEnter",
     build = ":Copilot auth",
     config = function()
-      require("copilot").setup({
-        panel = {
-          enabled = true,
-          auto_refresh = true,
-        },
-        suggestion = {
-          enabled = true,
-          auto_trigger = true,
-          keymap = {
-            accept = "<C-h>",
-            next = "<C-j>",
-            prev = "<C-k>",
-          }
-        },
-      })
+      return require "custom.configs.copilot"
     end
   },
   {
     "lewis6991/gitsigns.nvim",
     config = function()
-      require("gitsigns").setup()
+      require("gitsigns").setup({
+        numhl = true,
+      })
     end,
   },
   -- {
@@ -103,18 +138,7 @@ local plugins = {
     event = "VeryLazy",
     dependencies = "mfussenegger/nvim-dap",
     config = function()
-      local dap = require("dap")
-      local dapui = require("dapui")
-      require("dapui").setup()
-      dap.listeners.after.event_initialized["dapui_config"] = function()
-        dapui.open()
-      end
-      dap.listeners.before.event_terminated["dapui_config"] = function()
-        dapui.close()
-      end
-      dap.listeners.before.event_exited["dapui_config"] = function()
-        dapui.close()
-      end
+      require "custom.configs.dapui"
     end
   },
   {

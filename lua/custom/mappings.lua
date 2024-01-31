@@ -1,6 +1,35 @@
 
 local M = {}
 
+M.lsp = {
+  n = {
+    ["<leader>xx"] = {
+      "<cmd> TroubleToggle <CR>",
+      "Toggle trouble"
+    },
+    ["<leader>xw"] = {
+      "<cmd> TroubleToggle lsp_workspace_diagnostics <CR>",
+      "Toggle workspace diagnostics"
+    },
+    ["<leader>xd"] = {
+      "<cmd> TroubleToggle lsp_document_diagnostics <CR>",
+      "Toggle document diagnostics"
+    },
+    ["<leader>xq"] = {
+      "<cmd> TroubleToggle quickfix <CR>",
+      "Toggle quickfix"
+    },
+    ["<leader>xl"] = {
+      "<cmd> TroubleToggle loclist <CR>",
+      "Toggle loclist"
+    },
+    ["gR"] = {
+      "<cmd> TroubleToggle lsp_references <CR>",
+      "Toggle lsp references"
+    },
+  },
+}
+
 M.dap = {
   plugin = true,
   n = {
@@ -19,6 +48,15 @@ M.misc = {
   i = {
     ["jk"] = {"<Esc>"},
   }
+}
+
+M.lazyGit = {
+  n = {
+    ["<leader>gg"] = {
+      "<cmd> LazyGit <CR>",
+      "Open lazygit"
+    },
+  },
 }
 
 
