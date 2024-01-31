@@ -55,6 +55,12 @@ local plugins = {
       })
     end
   },
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("gitsigns").setup()
+    end,
+  },
   -- {
   --   "zbirenbaum/copilot-cmp",
   --   dependencies = "copilot.lua",
