@@ -28,15 +28,15 @@ local plugins = {
   },
   {
     "kylechui/nvim-surround",
-    version = "*", 
+    version = "*",
     event = "VeryLazy",
     config = function()
-        require("nvim-surround").setup({})
+      require("nvim-surround").setup({})
     end
   },
   {
     "folke/trouble.nvim",
-    dependencies = { 
+    dependencies = {
       "nvim-tree/nvim-web-devicons"
     },
   },
@@ -50,26 +50,26 @@ local plugins = {
   {
     "kdheepak/lazygit.nvim",
     event = "VeryLazy",
-    dependencies =  {
-        "nvim-telescope/telescope.nvim",
-        "nvim-lua/plenary.nvim"
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim"
     },
     config = function()
-        require("telescope").load_extension("lazygit")
+      require("telescope").load_extension("lazygit")
     end,
   },
   {
     "folke/noice.nvim",
     event = "VeryLazy",
     opts = {
-      presets = {
-        lsp_doc_border = true
-      }
+      -- presets = {
+      --   lsp_doc_border = true
+      -- }
     },
     dependencies = {
       "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
-    }
+      -- "rcarriga/nvim-notify",
+    },
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
