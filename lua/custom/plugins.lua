@@ -89,44 +89,6 @@ local plugins = {
     end
   },
   {
-    "lewis6991/gitsigns.nvim",
-    config = function()
-      require("gitsigns").setup({
-        numhl = true,
-      })
-    end,
-  },
-  -- {
-  --   "zbirenbaum/copilot-cmp",
-  --   dependencies = "copilot.lua",
-  --   opts = {},
-  --   config = function(_, opts)
-  --     local copilot_cmp = require("copilot_cmp")
-  --     copilot_cmp.setup(opts)
-  --     -- attach cmp source whenever copilot attaches
-  --     -- fixes lazy-loading issues with the copilot cmp source
-  --     require("lazyvim.util").lsp.on_attach(function(client)
-  --     if client.name == "copilot" then
-  --       copilot_cmp._on_insert_enter({})
-  --     end
-  --     end)
-  --   end,
-  -- },
-  -- {
-  --   "mhartington/formatter.nvim",
-  --   event = "VeryLazy",
-  --   opts = function()
-  --     return require "custom.configs.formatter"
-  --   end
-  -- },
-  -- {
-  --   "mfussenegger/nvim-lint",
-  --   event = "VeryLazy",
-  --   config = function()
-  --     require "custom.configs.lint"
-  --   end
-  -- },
-  {
     "neovim/nvim-lspconfig",
     config = function()
       require "plugins.configs.lspconfig"
