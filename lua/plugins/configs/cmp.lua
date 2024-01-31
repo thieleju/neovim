@@ -117,4 +117,7 @@ if cmp_style ~= "atom" and cmp_style ~= "atom_colored" then
   options.window.completion.border = border "CmpBorder"
 end
 
+-- Copilot
+-- options.sources = cmp.config.sources(vim.list_extend(options.sources, { { name = "copilot" }, { name = "emoji" } }))
+
 return options
