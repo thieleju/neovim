@@ -1,2 +1,1 @@
 # Neovim repository
-
