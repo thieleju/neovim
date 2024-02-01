@@ -47,7 +47,7 @@ M.dap = {
 M.misc = {
   i = {
     ["jk"] = {"<Esc>"},
-  }, 
+  },
   n  =  {
     ["<leader>wv"] = {
       "<cmd> vsplit <CR>",
@@ -62,13 +62,18 @@ M.misc = {
 
 M.lazyGit = {
   n = {
-    ["<leader>gg"] = {
-      "<cmd> LazyGit <CR>",
-      "Open lazygit"
-    },
+    ["<leader>gg"] = { "<cmd> LazyGit <CR>", "Open lazygit" },
   },
 }
 
+M.general = {
+  n = {
+    ["<C-h>"] = { "<cmd> TmuxNavigateLeft<CR>","window left"},
+    ["<C-l>"] = { "<cmd> TmuxNavigateRight<CR>","window right"},
+    ["<C-j>"] = { "<cmd> TmuxNavigateDown<CR>","window down"},
+    ["<C-k>"] = { "<cmd> TmuxNavigateUp<CR>","window up"},
+  }
+}
 
 return M
 
