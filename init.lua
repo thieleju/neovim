@@ -28,6 +28,8 @@ if vim.fn.has "win32" == 1 then
   vim.o.shellxquote = ""
 else
   -- Other than windows
+  vim.g.coc_node_path = "$NVM_BIN/node"
 end
+
 
 require "plugins"

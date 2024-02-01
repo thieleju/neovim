@@ -13,6 +13,10 @@ local plugins = {
     }
   },
   {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
+  },
+  {
     'Wansmer/treesj',
     keys = {
       '<space>m',
@@ -62,9 +66,9 @@ local plugins = {
     "folke/noice.nvim",
     event = "VeryLazy",
     opts = {
-      presets = {
-        lsp_doc_border = true
-      }
+      -- presets = {
+      --   lsp_doc_border = true
+      -- }
     },
     dependencies = {
       "MunifTanjim/nui.nvim",
