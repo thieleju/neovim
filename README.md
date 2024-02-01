@@ -2,3 +2,6 @@
 
 
 Current setup uses NvChad with several plugins.
+
+
+
