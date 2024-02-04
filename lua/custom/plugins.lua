@@ -9,6 +9,8 @@ local plugins = {
         "prettier",
         "typescript-language-server",
         "vue-language-server",
+        "bash-language-server",
+        "markdownlint",
       }
     }
   },
