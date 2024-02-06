@@ -14,6 +14,10 @@
         prev = "<C-k>",
       }
     },
+    filetypes = {
+      ["*"] = true,
+      ["."] = true
+    }
   })
 
 
