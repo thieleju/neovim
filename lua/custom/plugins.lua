@@ -11,6 +11,8 @@ local plugins = {
         "vue-language-server",
         "bash-language-server",
         "markdownlint",
+        "typescript",
+        "vue"
       }
     }
   },
