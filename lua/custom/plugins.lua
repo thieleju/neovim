@@ -12,7 +12,14 @@ local plugins = {
         "bash-language-server",
         "markdownlint",
         "typescript",
-        "vue"
+        "vue",
+        "yaml",
+        "toml",
+        "json",
+        "html",
+        "css",
+        "dockerfile",
+        "scss",
       }
     }
   },
@@ -76,7 +83,7 @@ local plugins = {
     },
     dependencies = {
       "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
+      -- "rcarriga/nvim-notify",
     },
   },
   {
