@@ -20,6 +20,7 @@ local plugins = {
         "css",
         "dockerfile",
         "scss",
+        "rust-analyzer",
       }
     }
   },
@@ -126,5 +127,12 @@ local plugins = {
       require("core.utils").load_mappings("dap")
     end
   },
+  {
+    "rust-lang/rust.vim",
+    ft = "rust",
+    init = function()
+      vim.g.rustfmt_autosave = 1
+    end,
+  }
 }
 return plugins
