@@ -27,6 +27,7 @@ local plugins = {
   {
     "rcarriga/nvim-notify",
     opts = {
+      background_colour = "#000000",
       timeout = 3000,
       max_height = function()
         return math.floor(vim.o.lines * 0.75)
@@ -132,14 +133,6 @@ local plugins = {
     end,
   },
   {
-    "rcarriga/nvim-dap-ui",
-    event = "VeryLazy",
-    dependencies = "mfussenegger/nvim-dap",
-    config = function()
-      require "custom.configs.dapui"
-    end
-  },
-  {
     "mfussenegger/nvim-dap",
     config = function()
       require "custom.configs.dap"
@@ -152,6 +145,6 @@ local plugins = {
     init = function()
       vim.g.rustfmt_autosave = 1
     end,
-  }
+  },
 }
 return plugins
