@@ -21,6 +21,7 @@ local plugins = {
         "dockerfile",
         "scss",
         "rust-analyzer",
+        "pyright",
       }
     }
   },
