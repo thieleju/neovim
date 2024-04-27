@@ -13,8 +13,12 @@ local M = {
     java = {
       require("formatter.filetypes.java").jdtls
     },
+    python = {
+      require("formatter.filetypes.python").pyright
+    },
     ["*"] = {
-      require("formatter.filetypes.any").remove_trailing_whitespace
+      -- Not sure if this even works?
+      require("formatter.filetypes.any").prettierd
     }
   }
 }
