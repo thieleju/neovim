@@ -10,6 +10,9 @@ local M = {
     sh = {
       require("formatter.filetypes.sh").shfmt
     },
+    java = {
+      require("formatter.filetypes.java").jdtls
+    },
     ["*"] = {
       require("formatter.filetypes.any").remove_trailing_whitespace
     }
