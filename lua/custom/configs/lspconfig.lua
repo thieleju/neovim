@@ -72,3 +72,22 @@ lspconfig.rust_analyzer.setup {
   }
 }
 
+-- java setup
+lspconfig.jdtls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "jdtls" },
+  root_dir = util.root_pattern("pom.xml", "maven.build"),
+  init_options = {
+    workspace = {
+      configuration = {
+        runtimes = {
+          {
+            name = "JavaSE-21",
+            path = "/usr/lib/jvm/java-1.21.0-openjdk-amd64",
+          },
+        },
+      },
+    },
+  },
+}
