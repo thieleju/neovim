@@ -1,35 +1,59 @@
-require "core"
+vim.g.base46_cache = vim.fn.stdpath("data") .. "/base46/"
+vim.g.mapleader = " "
 
-local custom_init_path = vim.api.nvim_get_runtime_file("lua/custom/init.lua", false)[1]
+-- bootstrap lazy and all plugins
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
-if custom_init_path then
-  dofile(custom_init_path)
+if not vim.uv.fs_stat(lazypath) then
+	local repo = "https://github.com/folke/lazy.nvim.git"
+	vim.fn.system({ "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath })
 end
 
-require("core.utils").load_mappings()
-
-local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
-
--- bootstrap lazy.nvim!
-if not vim.loop.fs_stat(lazypath) then
-  require("core.bootstrap").gen_chadrc_template()
-  require("core.bootstrap").lazy(lazypath)
-end
-
-dofile(vim.g.base46_cache .. "defaults")
 vim.opt.rtp:prepend(lazypath)
 
-vim.cmd "set fileformat=unix"
+local lazy_config = require("configs.lazy")
 
-if vim.fn.has "win32" == 1 then
-  vim.o.shell = "powershell.exe"
-  vim.o.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command"
-  vim.o.shellquote = ""
-  vim.o.shellxquote = ""
-else
-  -- Other than windows
-  vim.g.coc_node_path = "$NVM_BIN/node"
+-- load plugins
+require("lazy").setup({
+	{
+		"NvChad/NvChad",
+		lazy = false,
+		branch = "v2.5",
+		import = "nvchad.plugins",
+	},
+
+	{ import = "plugins" },
+}, lazy_config)
+
+-- load theme
+dofile(vim.g.base46_cache .. "defaults")
+dofile(vim.g.base46_cache .. "statusline")
+
+require("options")
+require("nvchad.autocmds")
+
+vim.schedule(function()
+	require("mappings")
+end)
+
+-- nvim-notify prerequisite
+vim.opt.termguicolors = true
+
+-- Open NvimTree automatically when opening a directory
+local autocmd = vim.api.nvim_create_autocmd
+local function open_nvim_tree(data)
+	-- buffer is a directory
+	local directory = vim.fn.isdirectory(data.file) == 1
+
+	if not directory then
+		return
+	end
+
+	-- change to the directory
+	vim.cmd.cd(data.file)
+
+	-- open the tree
+	require("nvim-tree.api").tree.open()
 end
 
-
-require "plugins"
+autocmd({ "VimEnter" }, { callback = open_nvim_tree })
