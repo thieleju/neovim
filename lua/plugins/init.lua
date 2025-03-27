@@ -193,4 +193,6 @@ return {
 			require("nvim-ts-autotag").setup()
 		end,
 	},
+
+	{ "echasnovski/mini.nvim", version = false },
 }
